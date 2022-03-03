@@ -63,7 +63,7 @@ Dichiariamo chi ha vinto.
 //* PRENDO L'ELEMENTO DAL DOM TRAMITE ID
 const unserNumberElement = document.getElementById("user-number");
 const myBtnNumberElement = document.getElementById("my-btn-number");
-const userSelectElement = document.getElementById("userSelect");
+const userSelectElement = document.getElementById("userselect");
 let resultNumberElement = document.getElementById("result-number");
 
 let cpuNumberRandom = numberRandom(1, 5);
@@ -75,7 +75,7 @@ let cpuNumberRandom = numberRandom(1, 5);
  */
 function numberRandom(min, max) {
   let numRan = Math.floor(Math.random() * (max - min + 1) + min);
-  console.log("Il numero della funzione random è", numRan);
+  /*  console.log("Il numero della funzione random è", numRan); */
   return numRan;
 }
 
@@ -87,17 +87,17 @@ myBtnNumberElement.addEventListener("click", function () {
   let userNumberValue = parseInt(unserNumberElement.value);
   let userSelectValue = userSelectElement.value;
   let sum = userNumberValue + cpuNumberRandom;
-  console.log(userNumberValue, cpuNumberRandom + " somma" + sum);
+  /* console.log(userNumberValue, cpuNumberRandom + " somma" + sum); */
 
 
   if (userSelectValue === "even" && isEven(sum)) {
-    /*  console.log("e pari"); */
-    resultNumberElement.innerHTML = `il numero Cpu è ${cpuNumberRandom} il numero User è${userNumberValue}
-    la somma è ${sum} ed è pari`
+    console.log("e pari");
+    resultNumberElement.innerHTML = `il numero Cpu è ${cpuNumberRandom} il numero User è ${userNumberValue}
+      la somma è ${sum} ed è pari`
   } else {
-    /*  console.log("e dipari"); */
-    resultNumberElement.innerHTML = `il numero Cpu è ${cpuNumberRandom} il numero User è${userNumberValue}
-    la somma è ${sum} ed è dispari`
+    console.log("e dipari");
+    resultNumberElement.innerHTML = `il numero Cpu è ${cpuNumberRandom} il numero User è ${userNumberValue}
+      la somma è ${sum} ed è dispari`
   }
 });
 
