@@ -74,8 +74,9 @@ let cpuNumberRandom = numberRandom(1, 5);
  * @returns 
  */
 function numberRandom(min, max) {
-  let numRan = Math.floor(Math.random() * (max - min + 1) + min);
+  /* let numRan = Math.floor(Math.random() * (max - min + 1) + min); */
   /*  console.log("Il numero della funzione random è", numRan); */
+  let numRan = 6;
   return numRan;
 }
 
@@ -86,19 +87,33 @@ myBtnNumberElement.addEventListener("click", function () {
 
   let userNumberValue = parseInt(unserNumberElement.value);
   let userSelectValue = userSelectElement.value;
+  console.log("L'utente ha scelto", userSelectValue);
   let sum = userNumberValue + cpuNumberRandom;
-  /* console.log(userNumberValue, cpuNumberRandom + " somma" + sum); */
+  console.log(userNumberValue, cpuNumberRandom + " somma " + sum);
 
+  const message = `il numero Cpu è ${cpuNumberRandom} il numero User è ${userNumberValue}
+la somma è ${sum} ed è`
 
-  if (userSelectValue === "even" && isEven(sum)) {
-    console.log("e pari");
-    resultNumberElement.innerHTML = `il numero Cpu è ${cpuNumberRandom} il numero User è ${userNumberValue}
-      la somma è ${sum} ed è pari`
-  } else {
-    console.log("e dipari");
-    resultNumberElement.innerHTML = `il numero Cpu è ${cpuNumberRandom} il numero User è ${userNumberValue}
-      la somma è ${sum} ed è dispari`
+  if ((userSelectValue === "even") && isEven(sum)) {
+    console.log(isEven(sum));
+    console.log("hai Vinto");
+    resultNumberElement.innerHTML = `${message} pari
+        <h1>Hai Vinto</h1>`
+  } else if ((userSelectValue === "even") && isEven(!sum)) {
+    console.log(isEven(!sum));
+    console.log("hai Perso");
+    resultNumberElement.innerHTML = `${message} dispari
+    <h1>Hai Perso </h1>`
+  } else if ((userSelectValue === "odd") && isEven(sum)) {
+    console.log("hai Perso");
+    resultNumberElement.innerHTML = `${message} dispari
+    <h1>Hai Perso </h1>`
+  } else if ((userSelectValue === "odd") && isEven(!sum)) {
+    console.log("hai Perso");
+    resultNumberElement.innerHTML = `${message} dispari
+    <h1>Hai Vinto </h1>`
   }
+
 });
 
 
