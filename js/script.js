@@ -14,18 +14,20 @@ Dichiariamo chi ha vinto.
 //* PRENDO L'ELEMENTO DAL DOM TRAMITE ID
 const myTextElement = document.getElementById("my-text");
 const myBtnTextElement = document.getElementById("my-btn-text");
-const resultWordElement = document.getElementById("result-word");
+let resultWordElement = document.getElementById("result-word");
 
 
 
 myBtnTextElement.addEventListener("click", function () {
   /**recpero il valore dell'input text */
   let myBtnTextValue = myTextElement.value;
-
   if (isWordPalindroma(myBtnTextValue)) {
-    resultWordElement += `La parola ${myBtnTextValue} è palindroma`
+
+    resultWordElement.innerHTML = `La parola ${myBtnTextValue} è palindroma`
+  } else {
+
+    resultWordElement.innerHTML = `La parola ${myBtnTextValue} non è palindroma`
   }
-  resultWordElement += `La parola ${myBtnTextValue} non è palindroma`
 
 });
 /**
