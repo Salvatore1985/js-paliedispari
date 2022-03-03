@@ -74,9 +74,9 @@ let cpuNumberRandom = numberRandom(1, 5);
  * @returns 
  */
 function numberRandom(min, max) {
-  /* let numRan = Math.floor(Math.random() * (max - min + 1) + min); */
+  let numRan = Math.floor(Math.random() * (max - min + 1) + min);
   /*  console.log("Il numero della funzione random è", numRan); */
-  let numRan = 6;
+
   return numRan;
 }
 
