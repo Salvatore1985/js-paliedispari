@@ -14,20 +14,37 @@ Dichiariamo chi ha vinto.
 //* PRENDO L'ELEMENTO DAL DOM TRAMITE ID
 const myTextElement = document.getElementById("my-text");
 const myBtnTextElement = document.getElementById("my-btn-text");
+const resultWordElement = document.getElementById("result-word");
+
 
 
 myBtnTextElement.addEventListener("click", function () {
   /**recpero il valore dell'input text */
   let myBtnTextValue = myTextElement.value;
-  console.log(myBtnTextValue);
 
-  myBtnTextValue.split("");
-  console.log(myBtnTextValue.split(""));
-
-  /*creo una array dove inserisco la parola inserita nell'input*/
-  const textArray = [];
-
-  textArray.reverse();
-  console.log(myBtnTextValue.split("").reverse().join("").toString());
+  if (isWordPalindroma(myBtnTextValue)) {
+    resultWordElement += `La parola ${myBtnTextValue} è palindroma`
+  }
+  resultWordElement += `La parola ${myBtnTextValue} non è palindroma`
 
 });
+/**
+ * Funzione isWordPalindroma
+ * @param {*} word //Parola inserita 
+ * @returns //true
+ */
+function isWordPalindroma(word) {
+  word.split("");
+  /*creo una array dove inserisco la parola inserita nell'input*/
+  const wordArray = [];
+
+  wordArray.reverse();
+  console.log(word.split("").reverse().join("").toString());
+  if (word === (word.split("").reverse().join("").toString())) {
+
+    return true
+  }
+  return false
+}
+
+
